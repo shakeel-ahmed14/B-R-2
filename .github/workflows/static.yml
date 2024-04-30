@@ -1,0 +1,26 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: Python Sccript Workflow
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches:
+         -main
+
+jobs:
+  run_python_code:
+    name: Run Pcode.py
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - name: Setup Puthon
+        uses: actions/setup-python@v2
+      
+        with:
+          python-version: '3.12'
+          
+      - name: Run Pcode.py
+        run: python Pcode.py
